@@ -2,33 +2,51 @@ with import <nixpkgs> {};
 
 mkShell {
   name = "vulkan";
-  packages = [
+  #packages = [
+  #  cmake
+  # mesa
+  # gdb
+  # freetype
+  # vulkan-headers
+  # vulkan-loader
+  # vulkan-validation-layers
+  #   vulkan-tools        # vulkaninfo
+  # shaderc             # GLSL to SPIRV compiler - glslc
+  # renderdoc           # Graphics debugger
+  # tracy               # Graphics profiler
+  # vulkan-tools-lunarg # vkconfig
+  #];
+
+  buildInputs = with pkgs; [
     cmake
-    dotnet-sdk_8
-    glfw
     mesa
-    glm
-    xorg.libX11
-    xorg.libXau
-    xorg.libXdmcp
     gdb
-    freetype
+    freetype 
     vulkan-headers
     vulkan-loader
     vulkan-validation-layers
-    vulkan-tools        # vulkaninfo
-    shaderc             # GLSL to SPIRV compiler - glslc
-    renderdoc           # Graphics debugger
-    tracy               # Graphics profiler
-    vulkan-tools-lunarg # vkconfig
-  ];
-
-  buildInputs = with pkgs; [
+    vulkan-tools
+    shaderc
+    renderdoc
+    tracy
+    vulkan-tools-lunarg
     glfw
     freetype
+    wayland
+    libxkbcommon
+    alsa-lib
+    #shaderc dirextx-shader-compiler
+    xorg.libX11
+    xorg.libXcursor
+    xorg.libXrandr
+    xorg.libXi
+    xorg.libXxf86vm
+    glfw
+    glm
+
   ];
 
-  LD_LIBRARY_PATH="${glfw}/lib:${freetype}/lib:${vulkan-loader}/lib:${vulkan-validation-layers}/lib";
-  VULKAN_SDK = "${vulkan-headers}";
-  VK_LAYER_PATH = "${vulkan-validation-layers}/share/vulkan/explicit_layer.d";
+    LD_LIBRARY_PATH="${glfw}/lib:${freetype}/lib:${vulkan-loader}/lib:${vulkan-validation-layers}/lib";
+    VULKAN_SDK = "${vulkan-headers}";
+    VK_LAYER_PATH = "${vulkan-validation-layers}/share/vulkan/explicit_layer.d";
 }
