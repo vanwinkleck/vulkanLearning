@@ -3,11 +3,15 @@ with import <nixpkgs> {};
 mkShell {
   name = "vulkan";
   packages = [
-    make
     cmake
     dotnet-sdk_8
     glfw
+    mesa
     glm
+    xorg.libX11
+    xorg.libXau
+    xorg.libXdmcp
+    gdb
     freetype
     vulkan-headers
     vulkan-loader
