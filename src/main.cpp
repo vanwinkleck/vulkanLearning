@@ -47,7 +47,6 @@ class HelloTriangleApplication {
 
 			uint32_t glfwExtensionCount = 0;
 			const char** glfwExtensions;
-
 			glfwExtensions = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);
 
 			createInfo.enabledExtensionCount = glfwExtensionCount;
@@ -70,6 +69,7 @@ class HelloTriangleApplication {
 		}
 
 		void cleanup() {
+			vkDestroyInstance(instance, nullptr);
 			glfwDestroyWindow(window);
 
 			glfwTerminate();
