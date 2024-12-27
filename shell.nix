@@ -2,21 +2,6 @@ with import <nixpkgs> {};
 
 mkShell {
   name = "vulkan";
-  #packages = [
-  #  cmake
-  # mesa
-  # gdb
-  # freetype
-  # vulkan-headers
-  # vulkan-loader
-  # vulkan-validation-layers
-  #   vulkan-tools        # vulkaninfo
-  # shaderc             # GLSL to SPIRV compiler - glslc
-  # renderdoc           # Graphics debugger
-  # tracy               # Graphics profiler
-  # vulkan-tools-lunarg # vkconfig
-  #];
-
   buildInputs = with pkgs; [
     cmake
     mesa
