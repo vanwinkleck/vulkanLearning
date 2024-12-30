@@ -6,20 +6,16 @@ mkShell {
     cmake
     mesa
     gdb
-    freetype 
     vulkan-headers
     vulkan-loader
     vulkan-validation-layers
     vulkan-tools
     shaderc
     renderdoc
-    tracy
     vulkan-tools-lunarg
     glfw
-    freetype
     wayland
     libxkbcommon
-    alsa-lib
     #shaderc dirextx-shader-compiler
     xorg.libX11
     xorg.libXcursor
